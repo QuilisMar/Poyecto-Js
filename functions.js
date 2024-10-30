@@ -62,6 +62,6 @@ function validateForm() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    loadContent('header.html', 'header');
-    loadContent('footer.html', 'footer');
+    loadContent('/header.html', 'header');
+    loadContent('/footer.html', 'footer');
 });
