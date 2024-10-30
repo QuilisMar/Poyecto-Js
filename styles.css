@@ -1,3 +1,4 @@
+/* Reseteo básico */
 * {
     margin: 0;
     padding: 0;
@@ -11,10 +12,11 @@ body {
     color: #333;
 }
 
+/* Estilos para el Encabezado y Navegación */
 header {
     background-color: #333;
     padding: 1rem;
-    color: white;
+    color: #fff;
 }
 
 .navbar {
@@ -33,24 +35,25 @@ header {
     margin: 0 1rem;
 }
 
-.nav-links a {
-    color: white;
+.nav-links a, .logo a {
+    color: #fff;
     text-decoration: none;
+    font-family: "Merriweather", serif;
+}
+
+.nav-links a {
     font-size: 1rem;
-    font-family: "Merriweather";
 }
 
 .logo a {
     font-size: 1.5rem;
-    color: white;
-    text-decoration: none;
     font-weight: bold;
-    font-family: "Merriweather";
 }
 
+/* Estilos para Hero */
 .hero {
     background-color: #282c34;
-    color: white;
+    color: #fff;
     padding: 4rem 2rem;
     text-align: center;
 }
@@ -65,41 +68,41 @@ header {
     margin-bottom: 2rem;
 }
 
-.nav-link {
-    background-color: #333;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.btn {
-    background-color: #ff5733;
-    color: white;
+/* Botones */
+.btn, .nav-link {
     padding: 0.8rem 1.5rem;
+    color: #fff;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
     border-radius: 5px;
     text-decoration: none;
+    font-family: inherit;
+}
+
+.btn {
+    background-color: #ff5733;
 }
 
 .btn:hover {
     background-color: #c4451d;
 }
 
+.nav-link {
+    background-color: #333;
+}
+
+/* Estilos de Sección de Catálogo de Películas */
 .movie-section {
     padding: 2rem;
     background-color: #fff;
+    text-align: center;
 }
 
 .movie-section h2 {
-    text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
-    font-family: "Merriweather";
+    font-family: "Merriweather", serif;
 }
 
 .movies-grid {
@@ -109,7 +112,7 @@ header {
 }
 
 .movie-card {
-    background-color: white;
+    background-color: #fff;
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -126,15 +129,17 @@ header {
     margin: 1rem 0;
 }
 
+/* Footer */
 footer {
     background-color: #333;
-    color: white;
+    color: #fff;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
-    font-family: "Merriweather";
+    font-family: "Merriweather", serif;
 }
 
+/* Responsive: Tablet */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -158,12 +163,9 @@ footer {
     .hero-text p {
         font-size: 1rem;
     }
-
-    .movie-card {
-        padding: 1rem;
-    }
 }
 
+/* Responsive: Mobile */
 @media (max-width: 480px) {
     footer {
         font-size: 0.8rem;
