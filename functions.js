@@ -13,22 +13,19 @@ function mostrarOtro() {
 
 // Función para cargar contenido en un elemento
 function loadContent(url, elementId) {
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error al cargar ${url}`);
-            }
-            return response.text();
-        })
-        .then(data => {
-            const element = document.getElementById(elementId);
-
-            // Limpiar contenido previo para evitar duplicados
-            element.innerHTML = ''; // Limpiar antes de cargar
-            element.insertAdjacentHTML('beforeend', data); // Cargar nuevo contenido
-        })
-        .catch(error => console.error('Error:', error));
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById(elementId).innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
 }
+document.addEventListener("DOMContentLoaded", function() {
+    loadContent('/Proyecto-Js/header.html', 'header');
+    loadContent('/Proyecto-Js/footer.html', 'footer');
+});
 
 function validateForm() {
     const email = document.getElementById('email').value;
@@ -60,8 +57,3 @@ function validateForm() {
     return valid;
 }
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    loadContent('/Proyecto-Js/header.html', 'header');
-    loadContent('/Proyecto-Js/footer.html', 'footer');
-});
