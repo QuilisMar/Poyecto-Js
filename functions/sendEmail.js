@@ -21,12 +21,12 @@ function sendEmail() {
     .then(response => response.json())
     .then(data => {
         if (data.message === 'Email enviado exitosamente') {
-            mostrarNotificacionEmergente("¡Registro exitoso!", "success");
+            showNotification("¡Registro exitoso!", "success");
         } else {
-            mostrarNotificacionEmergente("Error al enviar el formulario", "error");
+            showNotification("Error al enviar el formulario", "error");
         }
     })
     .catch(error => {
-        mostrarNotificacionEmergente("Error al enviar el formulario: " + error.message, "error");
+        showNotification("Error al enviar el formulario: " + error.message, "error");
     });
 }
