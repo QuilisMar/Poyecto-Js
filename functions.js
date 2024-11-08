@@ -73,6 +73,7 @@ function sendEmail() {
     });
 }
 
+*/
 // Función para mostrar la notificación emergente
 function showNotification(message, type) {
     const notification = document.getElementById("notification");
@@ -94,4 +95,3 @@ function showNotification(message, type) {
         }, 500); // Espera que termine la transición de desvanecimiento (0.5s)
     }, 5000); // Notificación visible durante 3 segundos
 }
-*/
