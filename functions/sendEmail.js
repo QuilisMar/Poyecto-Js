@@ -17,10 +17,10 @@ function sendEmail() {
     })
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
-        showNotification("¡Registro exitoso!"); // Muestra un mensaje de éxito
+        alert("¡Registro exitoso!"); // Muestra un mensaje de éxito
     }, function(error) {
         console.log('FAILED...', error); // Muestra el error en la consola
-        showNotification("Error al enviar el formulario: " + JSON.stringify(error)); // Muestra un mensaje de error
+        alert("Error al enviar el formulario: " + JSON.stringify(error)); // Muestra un mensaje de error
     });
 }
 
