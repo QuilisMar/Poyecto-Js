@@ -31,6 +31,9 @@
 
     </header>
     
+    <!-- Notificación emergente -->
+    <div class="notification" id="notification"></div>
+
     <!-- Main Content -->
     <main>
         <section class="form-section">
@@ -144,7 +147,17 @@
     </footer>
 
     <!-- Scripts -->
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "_RzttpefNC7GqfqSr",
+        });
+    })();
+    </script>
     <script src="functions.js"></script>
-
+    
 </body>
 </html>

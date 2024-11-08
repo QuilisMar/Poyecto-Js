@@ -87,6 +87,37 @@
 }
 
 
+/* Estilos de la notificación emergente */
+.notification {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50; /* Color verde para éxito */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+  }
+  
+  .notification.error {
+    background-color: #f44336; /* Color rojo para error */
+  }
+  
+  .notification.show {
+    display: block; /* Mostrar la notificación */
+  }
+  
+  .notification.fade-out {
+    opacity: 0; /* Se desvanece la notificación */
+  }
+  
+
+
+
+
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
     .name-container,
@@ -101,3 +132,4 @@
         flex: 1 1 100%;
     }
 }
+
