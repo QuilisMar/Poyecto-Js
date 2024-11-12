@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseñas de Película - CritiCine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resenas.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <nav class="navbar" aria-label="Navegación principal">
+            <div class="logo">
+                <a href="index.html" aria-label="Página de inicio">CritiCine</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="registro.html">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Notificación emergente -->
+    <div class="notification" id="notification"></div>
+
+    <main>
+        <!-- Lista de reseñas existentes -->
+        <section id="reviews-list">
+            <!-- Reseñas se cargarán aquí mediante JavaScript -->
+        </section>
+
+        <!-- Formulario para añadir reseña -->
+        <section>
+            <h3>Escribe tu Reseña</h3>
+            <form id="review-form">
+                <label for="review-name">Nombre:</label>
+                <input type="text" id="review-name" required placeholder="Tu nombre">
+                
+                <label for="review-text">Reseña:</label>
+                <textarea id="review-text" required placeholder="Escribe tu reseña aquí..."></textarea>
+                
+                <label for="review-rating">Puntuación:</label>
+                <div class="rating-stars">
+                    <!-- Las estrellas se representarán con dos mitades -->
+                    <div class="star" data-value="0">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="1">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="2">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="3">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="4">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="5">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="6">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="7">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="8">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="9">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                </div>                            
+                <p>Puntuación seleccionada: <span id="rating-display">0.0</span></p>  
+                <button type="button" onclick="submitReview()">Enviar Reseña</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CritiCine. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="functions.js"></script>  <!-- Este es el archivo principal -->
+    <script src="movie.js"></script>      <!-- Funciones relacionadas con las películas -->
+    <script src="review.js"></script>     <!-- Funciones relacionadas con las reseñas -->
+    <script src="utils.js"></script>      <!-- Funciones auxiliares, como actualizar estrellas -->
+</body>
+</html>
