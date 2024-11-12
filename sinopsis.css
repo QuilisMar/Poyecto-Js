@@ -1,0 +1,224 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+/* Estilos para el Encabezado y Navegación */
+header {
+    background-color: #222;
+    padding: 1rem;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a, .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Merriweather", serif;
+}
+
+.nav-links a {
+    font-size: 1rem;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Estilos de la sección de sinopsis */
+.movie-details {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #444;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Contenedor para el título centrado con el iframe */
+.movie-details h1 {
+    color: #ff5733;
+    font-size: 2rem;
+    font-family: "Merriweather", serif;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto; /* Centrado automático */
+}
+
+/* Contenedor para la imagen y el iframe */
+.movie-container {
+    display: flex;
+    align-items: center; /* Alinea la imagen y el iframe en el mismo eje */
+    gap: 20px; /* Espacio entre la imagen y el iframe */
+    justify-content: center; /* Centra el iframe */
+    margin-bottom: 1.5rem; /* Espacio entre la imagen/iframe y el contenido siguiente */
+}
+
+.movie-detail-image {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
+#movie-trailer {
+    width: 500px;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para un efecto destacado */
+    border-radius: 10px;
+}
+
+.movie-details p {
+    color: #f5f5f5;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-top: 1rem; /* Aumenta el margen superior para despegarlo del iframe */
+    padding-top: 2rem; /* Aumenta el espacio para que quede debajo del iframe */
+}
+
+/* Contenedor de los botones */
+.buttons-container {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 1.5rem; /* Espacio superior respecto a la sinopsis */
+}
+
+/* Estilos comunes para ambos botones */
+.add-to-cart-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #ff5733;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: inherit;
+    transition: background-color 0.3s;
+}
+
+/* Hover de los botones */
+.add-to-cart-link:hover {
+    background-color: #c4451d;
+}
+
+/* Estilos de la Sección de Reseñas */
+#reviews-list {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #444;
+    border-radius: 10px;
+}
+
+#reviews-list h3 {
+    color: #ff5733;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-family: "Merriweather", serif;
+}
+
+/* Desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive: Tablet */
+@media (max-width: 768px) {
+    .movie-details {
+        padding: 1.5rem;
+    }
+
+    .movie-details h1 {
+        font-size: 1.8rem;
+        margin-left: 0; /* Elimina el centrado adicional en pantallas más pequeñas */
+    }
+
+    .movie-container {
+        flex-direction: column; /* Apila imagen y iframe verticalmente */
+        align-items: center; /* Centra los elementos verticalmente */
+    }
+
+    #movie-trailer {
+        width: 100%;
+        height: auto;
+    }
+
+    .buttons-container {
+        flex-direction: column; /* Apila los botones verticalmente */
+        align-items: center;
+    }
+
+    #reviews-link {
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 480px) {
+    .movie-details {
+        padding: 1rem;
+    }
+
+    .movie-details h1 {
+        font-size: 1.6rem;
+        margin-left: 0; /* Elimina el centrado adicional en pantallas más pequeñas */
+    }
+
+    .movie-container {
+        flex-direction: column; /* Apila imagen y iframe verticalmente */
+        align-items: center; /* Centra los elementos verticalmente */
+    }
+
+    .buttons-container {
+        flex-direction: column; /* Apila los botones verticalmente */
+        align-items: center;
+    }
+
+    #movie-trailer {
+        width: 100%;
+        height: auto;
+    }
+
+    #reviews-link {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
