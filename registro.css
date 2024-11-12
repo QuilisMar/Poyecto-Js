@@ -1,15 +1,25 @@
 /* Estilos generales para el formulario de registro */
+
+
 .form-section {
+    background-color: #282c34;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Centro horizontal */
+    margin-top: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
-    padding: 2rem;
-    background-color: #f4f4f4;
 }
 
+
+
 .form-container {
-    background-color: white;
+    background-color: #a5a4a4;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
