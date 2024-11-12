@@ -8,13 +8,13 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #333;
     color: #333;
 }
 
 /* Estilos para el Encabezado y Navegación */
 header {
-    background-color: #333;
+    background-color: #222;
     padding: 1rem;
     color: #fff;
 }
@@ -69,12 +69,26 @@ header {
 }
 
 /* Botones */
+/* Contenedor de botones */
+.button-container {
+    display: flex;           /* Coloca los botones en una fila */
+    gap: 10px;               /* Espacio entre los botones */
+    margin-top: 10px;        /* Espacio entre los botones y el contenido de la tarjeta */
+}
+
+/* Asegúrate de que los botones tengan el mismo tamaño */
+.button-container .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+
+
 .btn, .nav-link {
     padding: 0.8rem 1.5rem;
     color: #fff;
     border: none;
     cursor: pointer;
-    text-transform: uppercase;
     border-radius: 5px;
     text-decoration: none;
     font-family: inherit;
@@ -95,12 +109,13 @@ header {
 /* Estilos de Sección de Catálogo de Películas */
 .movie-section {
     padding: 2rem;
-    background-color: #fff;
+    background-color: #333;
     text-align: center;
 }
 
 .movie-section h2 {
     margin-bottom: 2rem;
+    color: #fff;
     font-size: 2rem;
     font-family: "Merriweather", serif;
 }
@@ -112,7 +127,7 @@ header {
 }
 
 .movie-card {
-    background-color: #fff;
+    background-color: #b6adad;
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -120,6 +135,7 @@ header {
 }
 
 .movie-card img {
+    cursor: pointer;  /* Cambia el cursor a 'manito' al pasar sobre la imagen */
     max-width: 100%;
     border-radius: 10px;
     height: auto;
@@ -131,13 +147,19 @@ header {
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #222;
     color: #fff;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
     font-family: "Merriweather", serif;
 }
+
+/* Desplazamiento suave*/
+html {
+    scroll-behavior: smooth;
+}
+
 
 /* Responsive: Tablet */
 @media (max-width: 768px) {
