@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinopsis de la Película</title>
+    
+    <!-- Preconexión y fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resenas.css">
+    <link rel="stylesheet" href="sinopsis.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">CritiCine</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="registro.html">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Notificación emergente -->
+    <div class="notification" id="notification"></div>
+
+    <main>
+        <!-- Sinopsis de la película -->
+        <section class="movie-details">
+            <h1 id="movie-title">Nombre de la Película</h1>
+            <div class="movie-container">
+                <img id="movie-image" class="movie-detail-image" src="imagen-pelicula.jpg" alt="Imagen de la Película">
+                <!-- Video del trailer de la película -->
+                <iframe id="movie-trailer" width="500" height="300" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>Descripción de la película...</p>
+        
+            <div class="buttons-container">
+                <a class="add-to-cart-link" href="carrito.html">Agregar al carrito</a>
+                <a class="add-to-cart-link" href="#reviews-list">Ver Reseñas</a>
+            </div>
+        </section>
+
+        
+        <!-- Lista de reseñas existentes -->
+        <section id="reviews-list">
+            <!-- Reseñas se cargarán aquí mediante JavaScript -->
+        </section>
+
+        <section>
+            <h3>Escribe tu Reseña</h3>
+            <form id="review-form">
+                <label for="review-name">Nombre:</label>
+                <input type="text" id="review-name" required placeholder="Tu nombre">
+                
+                <label for="review-text">Reseña:</label>
+                <textarea id="review-text" required placeholder="Escribe tu reseña aquí..."></textarea>
+                
+                <label for="review-rating">Puntuación:</label>
+                             
+                <div class="rating-stars">
+                    <!-- Las estrellas se representarán con dos mitades -->
+                    <div class="star" data-value="0">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="1">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="2">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="3">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="4">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="5">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="6">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="7">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="8">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                    <div class="star" data-value="9">
+                        <div class="star-half left"></div>
+                        <div class="star-half right"></div>
+                    </div>
+                </div>
+                <p>Puntuación seleccionada: <span id="rating-display">0.0</span></p>
+                <button type="button" onclick="submitReview()">Enviar Reseña</button>                
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CritiCine. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="functions.js"></script>  <!-- Este es el archivo principal -->
+    
+
+    
+</body>
+</html>
