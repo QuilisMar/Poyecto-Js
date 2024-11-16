@@ -1,14 +1,39 @@
+//---------------------------------------------------
+//            MODULARIZAR ESTE ARCHIVO
+//---------------------------------------------------
+
+
+//Fucion que muestra el campo de texto, cuando se seleccion como pais Otro en las opciones 
 function mostrarOtro() {
     var paisSelect = document.getElementById("pais");
     var otroPaisContainer = document.getElementById("otroPaisContainer");
 
-    // Verifica si la opción seleccionada es "Otro"
+    
     if (paisSelect.value === "otro") {
-        otroPaisContainer.style.display = "block"; // Muestra el campo de texto
+        otroPaisContainer.style.display = "block"; 
     } else {
-        otroPaisContainer.style.display = "none"; // Oculta el campo de texto
+        otroPaisContainer.style.display = "none"; 
     }
 }
+
+// Función para validar el formulario de contacto
+function validateContactForm() {
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const asunto = document.getElementById('asunto').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    
+    if (nombre && email && asunto && mensaje) {
+        showNotification("¡Mensaje enviado con éxito!"); 
+    } else {
+        showNotification("Por favor, completa todos los campos.", "error"); 
+    }
+
+    return false; 
+}
+
+
 
 function validateForm() {
     const email = document.getElementById('email').value;
@@ -21,7 +46,7 @@ function validateForm() {
     
     let valid = true;
 
-    // Validación de coincidencia de email
+    
     if (email !== confirmEmail) {
         emailError.style.display = 'block';
         valid = false;
@@ -29,7 +54,7 @@ function validateForm() {
         emailError.style.display = 'none';
     }
 
-    // Validación de coincidencia de contraseña
+    
     if (password !== confirmPassword) {
         passwordError.style.display = 'block';
         valid = false;
@@ -37,37 +62,36 @@ function validateForm() {
         passwordError.style.display = 'none';
     }
 
-    // Si el formulario es válido, enviar el formulario
+  
     if (valid) {
-        sendEmail(); // Llama a la función para enviar el formulario
+        sendEmail(); 
     }
 
-    return false; // Evita el envío del formulario por defecto
+    return false; 
 }
 
 function sendEmail() {
-    // Captura los valores del formulario
+   
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;
     const email = document.getElementById('email').value;
     const fecha = document.getElementById('fecha-cumpleaños').value;
     const pais = document.getElementById('pais').value;
 
-    // Envío del correo
     emailjs.send("service_nogfamd", "template_j9nxiht", {
-        to_name: "Martin", // Cambia esto al nombre del destinatario si es necesario
+        to_name: "Martin", 
         nombre: nombre,
         apellido: apellido,
-        email: email, // Asegúrate de que esto coincida con tu plantilla
-        fecha: fecha, // Asegúrate de que esto coincida con tu plantilla
-        pais: pais // Asegúrate de que esto coincida con tu plantilla
+        email: email, 
+        fecha: fecha, 
+        pais: pais
     })
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
-        showNotification("¡Registro exitoso!"); // Muestra un mensaje de éxito
+        showNotification("¡Registro exitoso!"); 
     }, function(error) {
-        console.log('FAILED...', error); // Muestra el error en la consola
-        showNotification("Error al enviar el formulario: " + JSON.stringify(error)); // Muestra un mensaje de error
+        console.log('FAILED...', error); 
+        showNotification("Error al enviar el formulario: " + JSON.stringify(error)); 
     });
 }
 
@@ -77,21 +101,21 @@ function showNotification(message, type) {
     const notification = document.getElementById("notification");
     notification.textContent = message;
     
-    // Cambia el color de fondo según el tipo de notificación
+    
     notification.className = "notification show";
     if (type === "error") {
         notification.classList.add("error");
     }
     
-    // Oculta la notificación después de 3 segundos
+    
     setTimeout(() => {
         notification.classList.add("fade-out");
 
-        // Remueve la notificación después de que se desvanezca
+       
         setTimeout(() => {
-            notification.className = "notification"; // Reinicia la clase para futuras notificaciones
-        }, 500); // Espera que termine la transición de desvanecimiento (0.5s)
-    }, 5000); // Notificación visible durante 3 segundos
+            notification.className = "notification"; 
+        }, 500);
+    }, 5000); 
 }
 
 
@@ -101,19 +125,19 @@ function redirectToSynopsis(movieId) {
 }
 
 
-
 // Al cargar sinopsis.html, extrae el ID de la película y muestra su información
 window.onload = function () {
     const urlParams = new URLSearchParams(window.location.search);
     const movieId = urlParams.get('movieId');
     
     if (movieId) {
-        // Llamar a la función que obtiene el título y la imagen de la película
+        
         document.getElementById('movie-title').innerText = getMovieTitleById(movieId);
         const movieImage = getMovieImageById(movieId);
-        document.getElementById('movie-image').src = movieImage;  // Asegúrate de que el ID de la imagen sea correcto
+        document.getElementById('movie-image').src = movieImage;  
     }
 };
+
 
 // Simula la obtención del título de la película según el ID
 function getMovieTitleById(movieId) {
@@ -137,35 +161,45 @@ function getMovieImageById(movieId) {
     return movieImages[movieId] || 'https://via.placeholder.com/150';
 }
 
+//Simula la obtención de la sinopsis de la película según el ID
+function getMovieSynopsisById(movieId) {
+    const movieSynopses = {
+        'Bettlejuice': 'Un joven que después de morir, intenta asustar a los nuevos propietarios de su casa, pero pronto se encuentra con un extraño fantasma que tiene sus propios planes.',
+        'PlanetaDelTesoro': 'Un joven se embarca en una aventura espacial para encontrar un legendario tesoro perdido en un planeta lejano.',
+        'RetornoDelRey': 'La guerra final por la Tierra Media ha comenzado, y los pueblos libres deben unirse para derrotar a Sauron y destruir el Anillo Único.',
+        'MrNobody': 'En un futuro cercano, un hombre que es el último mortal vivo, reflexiona sobre sus decisiones y su vida pasada a través de las infinitas posibilidades de su existencia.',
+    };
+    return movieSynopses[movieId] || 'Sinopsis no disponible';
+}
+
+
+
+//Funcion que valida el envio de la reseña
 function submitReview() {
     const name = document.getElementById('review-name').value.trim();
     const text = document.getElementById('review-text').value.trim();
     
-    // Tomar el puntaje directamente del elemento de visualización
+    //Toma el puntaje directamente del elemento de visualización
     const rating = parseFloat(document.getElementById('rating-display').textContent);
 
-    // Validar si el nombre, la reseña y la puntuación están completos
     if (name && text && rating >= 0) {
         const reviewList = document.getElementById('reviews-list');
 
-        // Crear un nuevo elemento de reseña
+        
         const reviewItem = document.createElement('div');
         reviewItem.classList.add('review-item');
 
-        // Utilizar backticks para poder interpolar las variables en el HTML
+        //Utiliza backticks para poder interpolar las variables en el HTML
         reviewItem.innerHTML = `
             <p><strong>Nombre:</strong> ${name}</p>
             <p><strong>Puntuación:</strong> ${rating} / 10</p>
             <p><strong>Reseña:</strong> ${text}</p>
         `;
 
-        // Añadir la reseña a la lista de reseñas
         reviewList.appendChild(reviewItem);
 
-        // Limpiar los campos del formulario
         document.getElementById('review-form').reset();
 
-        // Reiniciar la puntuación de las estrellas y el puntaje mostrado
         resetStars();
         document.getElementById('rating-display').textContent = "0.0";
         showNotification('¡Reseña cargada exitosamente!');
@@ -174,7 +208,7 @@ function submitReview() {
     }
 }
 
-
+//Funcion que pone las estrellas en 0
 function resetStars() {
     const stars = document.querySelectorAll('.star');
     stars.forEach(star => {
@@ -182,13 +216,13 @@ function resetStars() {
         star.querySelector('.star-half.left').classList.remove('filled');
         star.querySelector('.star-half.right').classList.remove('filled');
     });
-    // Reiniciar el puntaje mostrado a 0.0
+    
     document.getElementById('rating-display').textContent = "0.0";
     updateRating(0);
 }
 
 
-// Función para actualizar la calificación
+//Función para actualizar la calificación
 function updateRating(rating) {
     const stars = document.querySelectorAll('.star');
     const ratingDisplay = document.getElementById('rating-display');
@@ -198,7 +232,7 @@ function updateRating(rating) {
         const rightHalf = star.querySelector('.star-half.right');
         const starValue = parseFloat(star.getAttribute('data-value'));
 
-        // Limpiar el color de fondo
+        
         leftHalf.style.backgroundColor = "#ccc";
         rightHalf.style.backgroundColor = "#ccc";
 
@@ -217,42 +251,11 @@ function updateRating(rating) {
         }
     });
 
-    // Actualizar el texto con el valor de la calificación
+    //Actualiza el texto con el valor de la calificación
     ratingDisplay.textContent = rating.toFixed(1);
 }
 
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Asegúrate de que el DOM esté cargado antes de modificar los elementos
-    const urlParams = new URLSearchParams(window.location.search);
-    const movieId = urlParams.get('movieId');
-    
-    if (movieId) {
-        // Llamar a la función que obtiene el título y la imagen de la película
-        document.getElementById('movie-title').innerText = getMovieTitleById(movieId);
-        const movieImage = getMovieImageById(movieId);
-        document.getElementById('movie-image').src = movieImage;  // Asegúrate de que el ID de la imagen sea correcto
-
-        // Obtener y mostrar el video correspondiente
-        const movieVideo = getMovieVideoById(movieId);
-        const iframe = document.getElementById('movie-trailer'); // Asegúrate de que el ID de iframe sea correcto
-        iframe.src = movieVideo; // Establece la URL del video en el iframe
-    }
-});
-
-// Simula la obtención del video de la película según el ID
-function getMovieVideoById(movieId) {
-    const movieVideos = {
-        'Bettlejuice': "https://www.youtube.com/embed/0S_C3UGazkc?si=KOAZN3mojBpc6wNA",  // Reemplaza con el ID real del video
-        'PlanetaDelTesoro': "https://www.youtube.com/embed/0QOfbX9Hg7E?si=aPvUG72OqMeCLsYi" ,
-        'RetornoDelRey': "https://www.youtube.com/embed/y2rYRu8UW8M?si=CyNxrQ7b5F1q7PNJ",
-        'MrNobody': "https://www.youtube.com/embed/vXf3gVYXlHg?si=nqApmd-rtTe6dgjP",
-    };
-    return movieVideos[movieId] || '';  // Devuelve un video por defecto si no se encuentra
-}
-
-
-// Función para manejar los clics sobre las mitades de las estrellas
+//Función para manejar los clics sobre las mitades de las estrellas
 document.querySelectorAll('.star').forEach(star => {
     const leftHalf = star.querySelector('.star-half.left');
     const rightHalf = star.querySelector('.star-half.right');
@@ -261,13 +264,13 @@ document.querySelectorAll('.star').forEach(star => {
         const currentValue = parseFloat(document.getElementById('rating-display').textContent);
         const starValue = parseFloat(star.getAttribute('data-value'));
 
-        // Si es la primera estrella y ya tiene 0.5, reducir a 0
+        //Si es la primera estrella y ya tiene 0.5, reducir a 0
         if (starValue === 0 && currentValue === 0.5) {
             updateRating(0); // Reducir a 0
         } else if (currentValue === (starValue + 0.5)) {
-            updateRating(starValue + 1); // Llenar completamente
+            updateRating(starValue + 1); //Llenar completamente
         } else {
-            updateRating(starValue + 0.5); // Llenar solo la mitad
+            updateRating(starValue + 0.5); //Llenar solo la mitad
         }
     });
 
@@ -275,14 +278,50 @@ document.querySelectorAll('.star').forEach(star => {
         const currentValue = parseFloat(document.getElementById('rating-display').textContent);
         const starValue = parseFloat(star.getAttribute('data-value'));
 
-        updateRating(starValue + 1); // Llenar completamente
+        updateRating(starValue + 1); 
     });
 });
 
-// Inicializar con una calificación de 0
+//Inicializa con una calificación de 0
 updateRating(0);
 
-// Cargar las reseñas desde un arreglo o de un backend
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Asegúrate de que el DOM esté cargado antes de modificar los elementos
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieId = urlParams.get('movieId');
+    
+    if (movieId) {
+        document.getElementById('movie-title').innerText = getMovieTitleById(movieId);
+        const movieImage = getMovieImageById(movieId);
+        document.getElementById('movie-image').src = movieImage;
+
+        //Obtener y mostrar el video correspondiente
+        const movieVideo = getMovieVideoById(movieId);
+        const iframe = document.getElementById('movie-trailer'); 
+        iframe.src = movieVideo; //Establece la URL del video en el iframe
+
+        //Obtener y mostrar la sinopsis
+        const synopsis = getMovieSynopsisById(movieId);
+        document.querySelector('.movie-details p').innerText = synopsis;
+
+    }
+});
+
+//Simula la obtención del video de la película según el ID
+function getMovieVideoById(movieId) {
+    const movieVideos = {
+        'Bettlejuice': "https://www.youtube.com/embed/0S_C3UGazkc?si=KOAZN3mojBpc6wNA",  
+        'PlanetaDelTesoro': "https://www.youtube.com/embed/0QOfbX9Hg7E?si=aPvUG72OqMeCLsYi" ,
+        'RetornoDelRey': "https://www.youtube.com/embed/y2rYRu8UW8M?si=CyNxrQ7b5F1q7PNJ",
+        'MrNobody': "https://www.youtube.com/embed/vXf3gVYXlHg?si=nqApmd-rtTe6dgjP",
+    };
+    return movieVideos[movieId] || ''; 
+}
+
+
+
+//Carga reseñas predefinidas
 function loadReviews() {
     const reviews = [
         { name: 'Juan', text: '¡Excelente película!', rating: 8 },
@@ -307,5 +346,5 @@ function loadReviews() {
 }
 
 
-// Llamar a la función cuando se carga la página
+//Llama a la función que carga las reseñas cuando se carga la página
 window.onload = loadReviews;

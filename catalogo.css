@@ -1,0 +1,53 @@
+/* Sección de Productos */
+.products-section {
+    padding: 2rem;
+    background-color: #333;
+    text-align: center;
+}
+
+.products-section h2 {
+    margin-bottom: 2rem;
+    color: #fff;
+    font-size: 2rem;
+    font-family: "Merriweather", serif;
+}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* Centra las tarjetas */
+}
+
+.product-card {
+    background-color: #b6adad;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 300px; /* Limita el tamaño máximo de las tarjetas */
+}
+
+.product-card img {
+    cursor: pointer;
+    max-width: 100%;
+    border-radius: 10px;
+    height: auto;
+}
+
+.product-card h3 {
+    margin: 1rem 0;
+}
+
+.product-card p {
+    margin: 0.5rem 0;
+}
+
+/* Responsive: Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .products-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
