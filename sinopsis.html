@@ -16,14 +16,22 @@
 <body>
     <!-- Header -->
     <header>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Navegación principal">
             <div class="logo">
-                <a href="index.html">CritiCine</a>
+                <a href="index.html" aria-label="Página de inicio">CritiCine</a>
             </div>
             <ul class="nav-links">
                 <li><a href="catalogo.html">Catálogo</a></li>
-                <li><a href="ofertas.html">Ofertas</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="index.html#movies">Ofertas</a></li>
+                <li>
+                    <a href="javascript:void(0);" class="carrito-btn" id="carrito-btn">
+                        Carrito
+                    </a>
+                    <div id="carrito-dropdown" class="carrito-dropdown">
+                        <p class="carrito-desc">No hay productos en el carrito.</p>
+                        <p class="carrito-desc">Total: <span id="total"> $0</span></p>
+                    </div>
+                </li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="registro.html">Registrarse</a></li>
             </ul>
@@ -38,17 +46,19 @@
         <section class="movie-details">
             <h1 id="movie-title">Nombre de la Película</h1>
             <div class="movie-container">
-                <img id="movie-image" class="movie-detail-image" src="imagen-pelicula.jpg" alt="Imagen de la Película">
+                <img id="movie-image" class="movie-detail-image" src="" alt="Imagen de la Película">
                 <!-- Video del trailer de la película -->
                 <iframe id="movie-trailer" width="500" height="300" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <p>Descripción de la película...</p>
+            <p id="movie-synopsis">Descripción de la película...</p> <!-- Sinopsis de la película -->
         
             <div class="buttons-container">
                 <a class="add-to-cart-link" href="carrito.html">Agregar al carrito</a>
                 <a class="add-to-cart-link" href="#reviews-list">Ver Reseñas</a>
             </div>
         </section>
+
+
 
         
         <!-- Lista de reseñas existentes -->
@@ -119,8 +129,18 @@
     <footer>
         <p>&copy; 2024 CritiCine. Todos los derechos reservados.</p>
     </footer>
-    
-    <script src="functions.js"></script>  
+    <script>
+    const urlParams = new URLSearchParams(window.location.search);
+        const movieId = urlParams.get('movieId');  // Obtiene el movieId de la URL
+        if (movieId) {
+            console.log(`Cargando sinopsis para la película con ID: ${movieId}`);
+            // Aquí cargarías el título, imagen, video, etc. usando el ID.
+        }
+        </script>
+    <script src="functions.js"></script>
+    <script src="validation.js"></script>
+    <script src="movieDetails.js"></script>
+    <script src="reviews.js"></script>
     
 </body>
 </html>

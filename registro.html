@@ -14,20 +14,26 @@
 <body>
     <!-- Header -->
     <header>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Navegación principal">
             <div class="logo">
-                <a href="index.html">CritiCine</a>
+                <a href="index.html" aria-label="Página de inicio">CritiCine</a>
             </div>
             <ul class="nav-links">
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="index.html#movies">Ofertas</a></li>
-                <li><a href="#">Carrito</a></li>
+                <li>
+                    <a href="javascript:void(0);" class="carrito-btn" id="carrito-btn">
+                        Carrito
+                    </a>
+                    <div id="carrito-dropdown" class="carrito-dropdown">
+                        <p class="carrito-desc">No hay productos en el carrito.</p>
+                        <p class="carrito-desc">Total: <span id="total"> $0</span></p>
+                    </div>
+                </li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="registro.html">Registrarse</a></li>
             </ul>
         </nav>
-        
-
     </header>
     
     <!-- Notificación emergente -->
@@ -159,7 +165,10 @@
     })();
     </script>
     
-    <script src="functions.js"></script> 
+    <script src="functions.js"></script>
+    <script src="validation.js"></script>
+    <script src="movieDetails.js"></script>
+    <script src="reviews.js"></script>
     
     
 </body>
