@@ -14,6 +14,7 @@
 
     <!-- Estilos principales -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
 
 <body>
@@ -27,12 +28,25 @@
             <ul class="nav-links">
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="#movies">Ofertas</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
+                <li>
+                    <a href="javascript:void(0);" class="carrito-btn" id="carrito-btn">
+                        Carrito
+                    </a>
+                    <div id="carrito-dropdown" class="carrito-dropdown">
+                        <ul id="carrito-lista">
+                            <!-- Aquí se añaden dinámicamente los productos -->
+                        </ul>
+                        <p class="carrito-desc" id="carrito-vacio">No hay productos en el carrito.</p>
+                        <p class="carrito-desc">Total: <span id="total">$0</span></p>
+                    </div>
+                </li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="registro.html">Registrarse</a></li>
             </ul>
         </nav>
     </header>
+    
+    
 
     <!-- Contenido Principal -->
     <main>
@@ -45,49 +59,16 @@
             </div>
         </section>
 
-<!-- Sección de Catálogo de Películas -->
-<section id="movies" class="movie-section" aria-labelledby="catalogo-titulo">
-    <h2 id="catalogo-titulo">Nuestras Ofertas</h2>
-    <div class="movies-grid">
-        <!-- Tarjetas de Películas -->
-        <div class="movie-card">
-            <img src="img/posters/Bettlejuice.jpeg" alt="Bettlejuice Poster" onclick="redirectToSynopsis('Bettlejuice')" >
-            <h3>Bettlejuice</h3>
-            <p>$9.99</p>
-            <div class="button-container">
-                <button class="btn" onclick="redirectToSynopsis('Bettlejuice')">Ver Más</button>
-                <button class="btn">Agregar al Carrito</button>
-            </div>
+    <!-- Sección de Catálogo de Películas -->
+    <section id="movies" class="movie-section" aria-labelledby="catalogo-titulo">
+        <h2 id="catalogo-titulo">Nuestras Ofertas</h2>
+        <div id="moviesGrid" class="movies-grid">
+            <!-- Las tarjetas se generarán dinámicamente aquí -->
         </div>
-        <div class="movie-card">
-            <img src="img/posters/El planeta del tesoro.jpeg" alt="El Planeta del Tesoro Poster" onclick="redirectToSynopsis('PlanetaDelTesoro')" >
-            <h3>El Planeta del Tesoro</h3>
-            <p>$9.99</p>
-            <div class="button-container">
-                <button class="btn" onclick="redirectToSynopsis('PlanetaDelTesoro')">Ver Más</button>
-                <button class="btn">Agregar al Carrito</button>
-            </div>
-        </div>
-        <div class="movie-card">
-            <img src="img/posters/El retorno del rey.jpeg" alt="El retorno del rey Poster" onclick="redirectToSynopsis('RetornoDelRey')">
-            <h3>El Retorno del Rey</h3>
-            <p>$9.99</p>
-            <div class="button-container">
-                <button class="btn" onclick="redirectToSynopsis('RetornoDelRey')">Ver Más</button>
-                <button class="btn">Agregar al Carrito</button>
-            </div>
-        </div>
-        <div class="movie-card">
-            <img src="img/posters/Mr.nobody.jpeg" alt="Mr.Nobody Poster" onclick="redirectToSynopsis('MrNobody')">
-            <h3>Mr.Nobody</h3>
-            <p>$9.99</p>
-            <div class="button-container">
-                <button class="btn" onclick="redirectToSynopsis('MrNobody')">Ver Más</button>
-                <button class="btn">Agregar al Carrito</button>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+    
+    
+
 
 
     <!-- Footer -->
@@ -95,7 +76,13 @@
         <p>&copy; 2024 CritiCine. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="functions.js"></script> 
+
+    
+    
+    <script src="functions.js"></script>
+    <script src="validation.js"></script>
+    <script src="movieDetails.js"></script>
+    <script src="reviews.js"></script>
     
 
 </body>

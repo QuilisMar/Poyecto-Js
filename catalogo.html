@@ -28,7 +28,15 @@
             <ul class="nav-links">
                 <li><a href="catalogo.html">Catálogo</a></li>
                 <li><a href="index.html#movies">Ofertas</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
+                <li>
+                    <a href="javascript:void(0);" class="carrito-btn" id="carrito-btn">
+                        Carrito
+                    </a>
+                    <div id="carrito-dropdown" class="carrito-dropdown">
+                        <p class="carrito-desc">No hay productos en el carrito.</p>
+                        <p class="carrito-desc">Total: <span id="total"> $0</span></p>
+                    </div>
+                </li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="registro.html">Registrarse</a></li>
             </ul>
@@ -37,102 +45,15 @@
 
     <!-- Contenido Principal -->
     <main>
-        <!-- Sección de Productos -->
         <section id="productos" class="products-section" aria-labelledby="productos-titulo">
             <h2 id="productos-titulo">Nuestro Catálogo</h2>
-            <div class="products-grid">
-                <!-- Tarjeta 1 -->
-                <div class="product-card">
-                    <img src="img\posters\El origen.jpeg" alt="El Origen Poster">
-                    <h3>El Origen</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <!-- Tarjeta 2 -->
-                <div class="product-card">
-                    <img src="img\posters\Endgame.jpeg" alt="Engame Poster">
-                    <h3>Engame</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <!-- Tarjeta 3 -->
-                <div class="product-card">
-                    <img src="img\posters\Harry potter 6.jpeg" alt="Harry Potter y el misterio del principe Poster">
-                    <h3>El Misterio del Principe</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <!-- Tarjeta 4 -->
-                <div class="product-card">
-                    <img src="img\posters\Intensamente.jpeg" alt="Intensamente Poster">
-                    <h3>Intensamente</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <!-- Tarjeta 5 -->
-                <div class="product-card">
-                    <img src="img\posters\Jurassic park.jpeg" alt="Jurassic Park Poster">
-                    <h3>Jurassic Park</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <!-- Tarjeta 6 -->
-                <div class="product-card">
-                    <img src="img\posters\Narnia.jpeg" alt="Narnia Poster">
-                    <h3>Narnia</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <!-- Tarjeta 7 -->
-                <div class="product-card">
-                    <img src="img\posters\Shrek 2.jpeg" alt="Shrek 2 Poster">
-                    <h3>Shrek 2</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <!-- Tarjeta 8 -->
-                <div class="product-card">
-                    <img src="img\posters\Star wars.jpeg" alt="Star Wars: El ultimo Jedi Poster">
-                    <h3>El Ultimo Jedi</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
-                <!-- Tarjeta 9 -->
-                <div class="product-card">
-                    <img src="img\posters\Tierra de osos.jpeg" alt="Tierra de Osos Poster">
-                    <h3>Tierra de Osos</h3>
-                    <p>$14.99</p>
-                    <div class="button-container">
-                        <a href="resenas.html" class="btn">Ver Reseñas</a>
-                        <button class="btn">Agregar al Carrito</button>
-                    </div>
-                </div>
+            <div id="moviesGrid" class="products-grid">
+                <!-- Las tarjetas se generarán dinámicamente aquí -->
             </div>
         </section>
+        
+        
+        
     </main>
 
     <!-- Footer -->
@@ -140,6 +61,11 @@
         <p>&copy; 2024 CritiCine. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Scripts -->
+    <script src="functions.js"></script>
+    <script src="validation.js"></script>
+    <script src="movieDetails.js"></script>
+    <script src="reviews.js"></script>
 </body>
 
 </html>
