@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="registro.css">
+    <link rel="stylesheet" href="cart.css">
 
 </head>
 <body>
@@ -26,8 +27,11 @@
                         Carrito
                     </a>
                     <div id="carrito-dropdown" class="carrito-dropdown">
-                        <p class="carrito-desc">No hay productos en el carrito.</p>
-                        <p class="carrito-desc">Total: <span id="total"> $0</span></p>
+                        <ul id="carrito-lista">
+                            <!-- Aquí se añaden dinámicamente los productos -->
+                        </ul>
+                        <p class="carrito-desc" id="carrito-vacio">No hay productos en el carrito.</p>
+                        <p class="carrito-desc">Total: <span id="total">$0</span></p>
                     </div>
                 </li>
                 <li><a href="contacto.html">Contacto</a></li>
