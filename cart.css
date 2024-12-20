@@ -1,0 +1,141 @@
+.btn-cantidad {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    background-color: #ff5733;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px black; /* Bordes blanco y negro */
+    margin: 0 2px; /* Espaciado horizontal entre los botones */
+}
+
+.btn-cantidad:hover {
+    background-color: #c4451d; /* Color al pasar el mouse */
+}
+
+
+.cantidad-input {
+    -moz-appearance: textfield; /* Eliminar las flechas en Firefox */
+    -webkit-appearance: none; /* Eliminar las flechas en navegadores WebKit */
+    appearance: none; /* Propiedad estándar */
+    width: 40px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #a5a4a4; /* Color de fondo */
+}
+
+/* Para navegadores WebKit */
+.cantidad-input::-webkit-inner-spin-button,
+.cantidad-input::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Eliminar las flechas */
+    margin: 0;
+}
+
+
+/* Estilo básico para el dropdown */
+.carrito-dropdown {
+    position: absolute;
+    background-color: #a5a4a4;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 200px;  /* Asegúrate de un ancho mínimo para el contenido */
+    z-index: 1;
+    padding: 10px;
+    top: 100%;  /* Aparece justo debajo del botón */
+    left: 50%;  /* Centrado horizontalmente */
+    transform: translateX(-50%);  /* Ajuste fino para centrar */
+    border-radius: 5px;  /* Bordes redondeados */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease, visibility 0s 0.6s; /* Transición más lenta */
+}
+
+/* Estilo para el botón del carrito */
+.carrito-btn {
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+}
+
+/* Cuando el dropdown se muestra */
+.carrito-dropdown.show {
+    max-height: 500px;  /* Ajusta el tamaño máximo según el contenido */
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.6s ease, opacity 0.6s ease, visibility 0s; /* Cambios suaves */
+}
+
+/* Estilo general para la navbar */
+.navbar {
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+/* Estilos para los párrafos con la clase .carrito-desc dentro del dropdown */
+.carrito-dropdown .carrito-desc {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 1rem;  /* Ajuste del tamaño de fuente */
+    font-weight: bold;
+    color: #333;      /* Color del texto */
+}
+
+/* Estilos específicos para el total */
+#total {
+    font-weight: bold;
+    color: green; /* Color verde para el total */
+}
+
+#carrito-vacio {
+    color: white; /* Color blanco para el mensaje de vacío */
+    font-style: italic;  /* Estilo en cursiva */
+    text-align: center;  /* Alineación centrada */
+    margin-top: 10px; /* Un pequeño margen si lo deseas */
+}
+
+
+
+
+.carrito-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.carrito-dropdown li {
+    color: #282c34; 
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.carrito-img {
+    width: 40px;
+    height: 60px;
+    margin-right: 10px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.carrito-info {
+    flex-grow: 1;
+}
+
+
