@@ -1,6 +1,4 @@
 
-
-
 // Funciones para obtener datos de películas
 function getMovieTitleById(movieId) {
     const movieTitles = {
@@ -78,16 +76,48 @@ const allMovies = [
     'Narnia', 'Shrek2', 'UltimoJedi', 'TierraDeOsos'
 ];
 
+// Función para obtener una clave única basada en la fecha actual
+function getDailyKey() {
+    const today = new Date();
+    return `movies_${today.getFullYear()}_${today.getMonth() + 1}_${today.getDate()}`;
+}
+
 // Función para seleccionar aleatoriamente un número específico de películas
 function getRandomMovies(count) {
+    const dailyKey = getDailyKey();
+
+    // Verificar si ya hay una selección almacenada para hoy
+    const storedMovies = localStorage.getItem(dailyKey);
+    if (storedMovies) {
+        return JSON.parse(storedMovies); // Retornar la selección guardada
+    }
+
+    // Si no hay selección almacenada, generar una nueva
     const shuffled = allMovies.sort(() => 0.5 - Math.random()); // Mezcla aleatoria
-    return shuffled.slice(0, count); // Selecciona los primeros 'count' elementos
+    const selectedMovies = shuffled.slice(0, count); // Selecciona los primeros 'count' elementos
+
+    // Guardar la selección en localStorage
+    localStorage.setItem(dailyKey, JSON.stringify(selectedMovies));
+
+    return selectedMovies;
 }
+
 
 // Seleccionar 4 películas aleatorias para la oferta
 const offerMovies = getRandomMovies(4);
 // El resto de las películas van al catálogo
 const catalogMovies = allMovies.filter(movie => !offerMovies.includes(movie));
+
+const standardPrice = 14.99;
+const offerPrice = 9.99;
+
+function getMoviePriceById(movieId) {
+    // Verificar si la película está en oferta
+    if (offerMovies.includes(movieId)) {
+        return offerPrice;
+    }
+    return standardPrice;
+}
 
 // Redirige a la página de sinopsis con el ID de la película en la URL
 function redirectToSynopsis(movieId) {
@@ -142,7 +172,7 @@ function generateOfferMovies() {
     if (!moviesGrid) return;
 
     offerMovies.forEach(movieId => {
-        const card = createMovieCard(movieId, '$9.99'); // Llamar a la función para crear la tarjeta con el precio de oferta
+        const card = createMovieCard(movieId, getMoviePriceById(movieId)); // Llamar a la función para crear la tarjeta con el precio de oferta
         moviesGrid.appendChild(card);
     });
 }
